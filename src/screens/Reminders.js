@@ -7,24 +7,38 @@ const Reminders = () => {
             <Text style={styles.header}>July, 8th 2023</Text>
             <View style={styles.reminderBoxesContainer}>
               <TouchableOpacity
-                 style={styles.reminderBox}
-                 onPress={() => {
-                 Alert.alert(
-                 'Reminders for Today',
-                 'Book Train Tickets',
-             );
-         }}
-     >
-    <Text style={styles.reminderBoxTitle}>Today</Text>
-  </TouchableOpacity>
-                <View style={styles.reminderBox}>
+                style={styles.reminderBox}
+                onPress={() => {
+                    Alert.alert(
+                        'Reminders for Today',
+                        'Book Train Tickets',
+                        );
+                    }}
+                >
+                    <Text style={styles.reminderBoxTitle}>Today</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                style={styles.reminderBox}
+                onPress={() => {
+                    Alert.alert(
+                        'Reminders for This Week',
+                        'Pick Up Friend from Airport',
+                        );
+                    }}
+                >
                     <Text style={styles.reminderBoxTitle}>This Week</Text>
-                    {/* TODO: Add the number of reminders for this week */}
-                </View>
-                <View style={styles.reminderBox}>
+                </TouchableOpacity>
+                <TouchableOpacity
+                style={styles.reminderBox}
+                onPress={() => {
+                    Alert.alert(
+                        'Reminders for This Month',
+                        'No reminders for this month',
+                        );
+                    }}
+                >
                     <Text style={styles.reminderBoxTitle}>This Month</Text>
-                    {/* TODO: Add the number of reminders for this month */}
-                </View>
+                </TouchableOpacity>
             </View>
         </View>
     );
