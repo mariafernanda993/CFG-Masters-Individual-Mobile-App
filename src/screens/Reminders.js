@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, Alert, TouchableOpacity } from "react-native";
 const Reminders = () => {
     return (
         <View style={StyleSheet.container}>
-            <Text style={styles.header}>July, 8th 2023</Text>
+            <Text style={styles.header}>July 8th, 2023</Text>
             <View style={styles.reminderBoxesContainer}>
               <TouchableOpacity
                 style={styles.reminderBox}
@@ -39,6 +39,9 @@ const Reminders = () => {
                 >
                     <Text style={styles.reminderBoxTitle}>This Month</Text>
                 </TouchableOpacity>
+            </View>
+            <View style={styles.headerContainer}>
+                <Text style={styles.headerText}>All Reminders</Text>
             </View>
             <View style={styles.subheaderContainer}>
                 <Text style={styles.subheaderText}>July 8, 2023</Text>
@@ -103,7 +106,7 @@ const styles = StyleSheet.create({
         color: 'purple',
     },
     reminderBox: {
-        backgroundColor: 'rgba(148, 120, 245, 0.8)',
+        backgroundColor: '#b298dc',
         borderRadius: 8,
         padding: 10,
         marginBottom: 10,
@@ -111,7 +114,17 @@ const styles = StyleSheet.create({
     reminderText: {
         fontSize: 16,
         color: 'white',
-    },        
+    },
+    headerContainer: {
+        marginTop: 40,
+        marginBottom: 10,
+      },
+      headerText: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        color: 'purple',
+        textAlign: 'center'
+      },        
 });
 
 export default Reminders;

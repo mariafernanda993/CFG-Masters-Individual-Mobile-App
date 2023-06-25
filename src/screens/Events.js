@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
     color: 'purple',
     textAlign: 'center',
     marginVertical: 10,
+    marginBottom: 50,
   },
   eventContainer: {
     flexDirection: 'row',

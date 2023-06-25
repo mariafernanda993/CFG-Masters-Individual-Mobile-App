@@ -27,7 +27,7 @@ const TasksPage = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>This Week</Text>
+      <Text style={styles.header}>This Week:</Text>
       {tasks.map((task, index) => (
         <View key={index} style={styles.taskContainer}>
           <CheckBox
@@ -54,6 +54,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'purple',
     marginBottom: 20,
+    marginTop: 20,
+    textDecorationLine: 'underline',
   },
   taskContainer: {
     flexDirection: 'row',
