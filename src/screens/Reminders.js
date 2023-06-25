@@ -1,15 +1,22 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Alert, TouchableOpacity } from "react-native";
 
 const Reminders = () => {
     return (
         <View style={StyleSheet.container}>
             <Text style={styles.header}>July, 8th 2023</Text>
             <View style={styles.reminderBoxesContainer}>
-                <View style={styles.reminderBox}>
-                    <Text style={styles.reminderBoxTitle}>Today</Text>
-                    {/* TODO: Add the number of reminders for today */}
-                </View>
+              <TouchableOpacity
+                 style={styles.reminderBox}
+                 onPress={() => {
+                 Alert.alert(
+                 'Reminders for Today',
+                 'Book Train Tickets',
+             );
+         }}
+     >
+    <Text style={styles.reminderBoxTitle}>Today</Text>
+  </TouchableOpacity>
                 <View style={styles.reminderBox}>
                     <Text style={styles.reminderBoxTitle}>This Week</Text>
                     {/* TODO: Add the number of reminders for this week */}
@@ -54,8 +61,10 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: 'bold',
         color: 'white',
-      },
-      
+      }, 
+      remindersContainer: {
+        marginVertical: 10,
+      },          
 });
 
 export default Reminders;
