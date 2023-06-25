@@ -31,7 +31,8 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginBottom: 20,
+    marginBottom: 50,
+    color: 'purple'
   },
   container: {
     flex: 1,
@@ -42,6 +43,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     alignItems: 'flex-start',
+    marginLeft: 20,
     width: '100%',
   },
   buttonStyle: {
@@ -51,6 +53,7 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     fontSize: 18,
-    marginLeft: 10,
+    marginLeft: 20,
+    color: 'purple'
   },
 });
