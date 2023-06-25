@@ -27,7 +27,7 @@ const TasksPage = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Tasks</Text>
+      <Text style={styles.header}>This Week</Text>
       {tasks.map((task, index) => (
         <View key={index} style={styles.taskContainer}>
           <CheckBox

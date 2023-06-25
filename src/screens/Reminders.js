@@ -33,7 +33,7 @@ const Reminders = () => {
                 onPress={() => {
                     Alert.alert(
                         'Reminders for This Month',
-                        'No reminders for this month',
+                        'No Other Reminders for this Month',
                         );
                     }}
                 >
@@ -57,11 +57,13 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         marginBottom: 10,
         color: 'purple',
+        marginTop: 40,
     },
     reminderBoxesContainer: {
         flexDirection:'row',
         justifyContent: 'space-evenly',
         marginBottom: 10,
+        marginTop: 30,
     },
     reminderBox: {
         width: 100,

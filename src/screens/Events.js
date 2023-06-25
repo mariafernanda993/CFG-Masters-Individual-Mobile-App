@@ -11,8 +11,7 @@ const EventsPage = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Events</Text>
-      <Text style={styles.subHeader}>July</Text>
+      <Text style={styles.header}>July</Text>
       {events.map((event, index) => (
         <View key={index} style={styles.eventContainer}>
           <View style={styles.dateContainer}>
@@ -41,13 +40,6 @@ const styles = StyleSheet.create({
     color: 'purple',
     textAlign: 'center',
     marginVertical: 10,
-  },
-  subHeader: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: 'purple',
-    textAlign: 'center',
-    marginBottom: 10,
   },
   eventContainer: {
     flexDirection: 'row',
