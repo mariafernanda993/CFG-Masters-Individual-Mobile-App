@@ -40,6 +40,18 @@ const Reminders = () => {
                     <Text style={styles.reminderBoxTitle}>This Month</Text>
                 </TouchableOpacity>
             </View>
+            <View style={styles.subheaderContainer}>
+                <Text style={styles.subheaderText}>July 8, 2023</Text>
+            </View>
+            <View style={styles.reminderBox}>
+                <Text style={styles.reminderText}>Book Train Tickets</Text>
+            </View>
+            <View style={styles.subheaderContainer}>
+                <Text style={styles.subheaderText}>July 14, 2023</Text>
+            </View>
+            <View style={styles.reminderBox}>
+                <Text style={styles.reminderText}>Pick Up Friend From Airport</Text>
+            </View>
         </View>
     );
 };
@@ -80,7 +92,26 @@ const styles = StyleSheet.create({
       }, 
       remindersContainer: {
         marginVertical: 10,
-      },          
+      },
+      subheaderContainer: {
+        marginTop: 20,
+        marginBottom: 10,
+    },
+    subheaderText: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: 'purple',
+    },
+    reminderBox: {
+        backgroundColor: 'rgba(148, 120, 245, 0.8)',
+        borderRadius: 8,
+        padding: 10,
+        marginBottom: 10,
+    },
+    reminderText: {
+        fontSize: 16,
+        color: 'white',
+    },        
 });
 
 export default Reminders;
