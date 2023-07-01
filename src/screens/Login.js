@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TextInput, Button, Alert } from 'react-native';
 import styles from '../styles/AppStyles'
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -11,8 +11,17 @@ const Login = () => {
     if (username === '' || password === '') {
       Alert.alert('Error', 'Username or password field cannot be empty.');
     } else {
-      const credentials = {username, password };
-      await AsyncStorage.setItem('credentials', JSON.stringify(credentials));
+      // Get stored credentials
+      const storedCredentials = JSON.parse(await AsyncStorage.getItem('credentials'));
+  
+      if (!storedCredentials || storedCredentials.username !== username || storedCredentials.password !== password) {
+        // The username and password don't match what's stored
+        Alert.alert('Error', 'Invalid credentials');
+      } else {
+        // The user is logged in
+        Alert.alert('Success', 'Logged in successfully');
+        // TODO: Navigate to another screen
+      }
     }
   };
 
