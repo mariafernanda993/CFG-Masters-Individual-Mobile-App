@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TextInput, Button, Alert } from 'react-native';
-import styles from '../styles/AppStyles'
+import styles from '../styles/AppStyles';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import HomePage from './Home';
 
 const Login = ({ navigation }) => {
   const [username, setUsername] = useState('');
@@ -12,17 +11,59 @@ const Login = ({ navigation }) => {
     if (username === '' || password === '') {
       Alert.alert('Error', 'Username or password field cannot be empty.');
     } else {
-      // Get stored credentials
-      const storedCredentials = JSON.parse(await AsyncStorage.getItem('credentials'));
-  
-      if (!storedCredentials || storedCredentials.username !== username || storedCredentials.password !== password) {
-        // The username and password don't match what's stored
+      // retrieve stored credentials
+      const storedCredentialsString = await AsyncStorage.getItem('credentials');
+      const storedCredentials = JSON.parse(storedCredentialsString);
+
+      if (!storedCredentials) {
         Alert.alert('Error', 'Invalid credentials');
       } else {
-        // The user is logged in
-        Alert.alert('Success', 'Logged in successfully');
-        navigation.navigate('Home');
+        const matchedUser = storedCredentials.find(
+          (cred) => cred.username === username && cred.password === password
+        );
+
+        if (!matchedUser) {
+          Alert.alert('Error', 'Invalid credentials');
+        } else {
+          Alert.alert('Success', 'Logged in successfully');
+          navigation.navigate('Home');
+        }
       }
+    }
+  };
+
+  const handleRegister = async () => {
+    if (username === '' || password === '') {
+      Alert.alert('Error', 'Username or password field cannot be empty.');
+    } else {
+
+      //check whether there are existing credentials and retrieve them, otherwise set storedCredentials as empty array '[]'
+      const storedCredentialsString = await AsyncStorage.getItem('credentials');
+      const storedCredentials = storedCredentialsString ? JSON.parse(storedCredentialsString) : [];
+
+      //if credentials exist, check whether username already exists
+      if (storedCredentials.length > 0) {
+        const existingUser = storedCredentials.find(
+          (cred) => cred.username === username
+        );
+
+        if (existingUser) {
+          Alert.alert('Error', 'Username already exists. Please choose a different username.');
+          return;
+        }
+
+        // new array to store new credentials and set them as a JSON string in AsyncStorage
+        const newCredentials = [...storedCredentials, { username, password }];
+        await AsyncStorage.setItem('credentials', JSON.stringify(newCredentials));
+        Alert.alert('Success', 'Registered successfully');
+        //if length of storedCredentials =0 (a.k.a, there are no stored credentials)
+      } else {
+        const newCredentials = [{ username, password }];
+        await AsyncStorage.setItem('credentials', JSON.stringify(newCredentials));
+        Alert.alert('Success', 'Registered successfully');
+      }
+
+      navigation.navigate('Home');
     }
   };
 
@@ -43,6 +84,7 @@ const Login = ({ navigation }) => {
         secureTextEntry
       />
       <Button title="Login" onPress={handleLogin} />
+      <Button title="Register" onPress={handleRegister} />
     </View>
   );
 };
