@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, TouchableOpacity, Alert } from 'react-native';
 import { CheckBox } from 'react-native-elements';
 import AppStyles from '../styles/AppStyles';
 
 const TasksPage = () => {
-  const [checked, setChecked] = useState([false, false, false, false, false]); // initial state for all tasks is not checked
+  const [checked, setChecked] = useState([false, false, false, false, false]);
 
   const tasks = [
     'Buy friend\'s birthday present',
@@ -15,12 +15,9 @@ const TasksPage = () => {
   ];
 
   const handleCheck = (index) => {
-    let newChecked = [...checked]; // copying the old array
-    newChecked[index] = !newChecked[index]; // change the check status of the target task
-
-    setChecked(newChecked); // set the new checks status to the state
-
-    // Only alert if task is completed
+    let newChecked = [...checked];
+    newChecked[index] = !newChecked[index];
+    setChecked(newChecked);
     if (!newChecked[index]) {
       Alert.alert('Task completed');
     }
