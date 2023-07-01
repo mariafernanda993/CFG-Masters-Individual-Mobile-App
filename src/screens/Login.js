@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, Button, Alert } from 'react-native';
 import styles from '../styles/AppStyles'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     if (username === '' || password === '') {
       Alert.alert('Error', 'Username or password field cannot be empty.');
     } else {
-      // Will implement AsyncStorage here for storing and retrieving user credentials.
+      const credentials = {username, password };
+      await AsyncStorage.setItem('credentials', JSON.stringify(credentials));
     }
   };
 
@@ -34,6 +36,5 @@ const Login = () => {
     </View>
   );
 };
-
 
 export default Login;
