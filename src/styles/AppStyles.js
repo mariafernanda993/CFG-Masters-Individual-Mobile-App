@@ -47,6 +47,37 @@ const AppStyles = StyleSheet.create({
     fontSize: 16,
     color: 'white',
   },
+  // new styles
+  reminderBoxesContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    marginBottom: 10,
+    marginTop: 30,
+  },
+  reminderBoxTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: 'white',
+  },
+  headerContainer: {
+    marginTop: 40,
+    marginBottom: 10,
+  },
+  headerText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: 'purple',
+    textAlign: 'center'
+  },
+  subheaderContainer: {
+    marginTop: 20,
+    marginBottom: 10,
+  },
+  subheaderText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: 'purple',
+  },
 });
 
 export default AppStyles;
