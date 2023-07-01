@@ -56,10 +56,37 @@ const AppStyles = StyleSheet.create({
     fontSize: 18,
     color: 'purple',
   },
-  buttonContainer: {
-    alignItems: 'flex-start',
-    marginLeft: 20,
-    width: '100%',
+  eventContainer: {
+    flexDirection: 'row',
+    marginBottom: 20,
+  },
+  dateContainer: {
+    marginRight: 10,
+    alignItems: 'center',
+  },
+  dayText: {
+    fontSize: 14,
+    color: 'purple',
+  },
+  dateText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: 'purple',
+  },
+  detailsContainer: {
+    flex: 1,
+    backgroundColor: 'purple',
+    borderRadius: 10,
+    padding: 10,
+    opacity: 0.8,
+  },
+  eventName: {
+    fontSize: 16,
+    color: 'white',
+  },
+  time: {
+    fontSize: 14,
+    color: 'white',
   },
 });
 
