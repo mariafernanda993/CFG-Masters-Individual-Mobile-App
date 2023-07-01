@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TextInput, Button, Alert } from 'react-native';
 import styles from '../styles/AppStyles'
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import HomePage from './Home';
 
-const Login = () => {
+const Login = ({ navigation }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -20,7 +21,7 @@ const Login = () => {
       } else {
         // The user is logged in
         Alert.alert('Success', 'Logged in successfully');
-        // TODO: Navigate to another screen
+        navigation.navigate('Home');
       }
     }
   };
