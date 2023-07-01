@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, Button, Alert } from 'react-native';
+import styles from '../styles/AppStyles'
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -34,24 +35,5 @@ const Login = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    padding: 16,
-  },
-  header: {
-    fontSize: 24,
-    textAlign: 'center',
-    margin: 20,
-  },
-  input: {
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    paddingLeft: 8,
-    margin: 10,
-  },
-});
 
 export default Login;
