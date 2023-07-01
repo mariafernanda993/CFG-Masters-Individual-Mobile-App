@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import { CheckBox } from 'react-native-elements';
+import AppStyles from '../styles/AppStyles';
 
 const TasksPage = () => {
   const [checked, setChecked] = useState([false, false, false, false, false]); // initial state for all tasks is not checked
@@ -26,46 +27,21 @@ const TasksPage = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.header}>This Week:</Text>
+    <View style={AppStyles.container}>
+      <Text style={AppStyles.header}>This Week:</Text>
       {tasks.map((task, index) => (
-        <View key={index} style={styles.taskContainer}>
+        <View key={index} style={AppStyles.taskContainer}>
           <CheckBox
             checked={checked[index]}
             onPress={() => handleCheck(index)}
             checkedColor='purple'
             uncheckedColor='purple'
           />
-          <Text style={styles.taskText}>{task}</Text>
+          <Text style={AppStyles.taskText}>{task}</Text>
         </View>
       ))}
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-    backgroundColor: 'lavender',
-  },
-  header: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: 'purple',
-    marginBottom: 20,
-    marginTop: 20,
-    textDecorationLine: 'underline',
-  },
-  taskContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 10,
-  },
-  taskText: {
-    fontSize: 18,
-    color: 'purple',
-  },
-});
 
 export default TasksPage;
