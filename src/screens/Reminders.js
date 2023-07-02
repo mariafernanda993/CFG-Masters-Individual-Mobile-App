@@ -1,11 +1,17 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { View, Text, StyleSheet, Alert, TouchableOpacity } from "react-native";
 import AppStyles from "../styles/AppStyles";
 
 const Reminders = () => {
+    const username = useSelector(state => state.username);
+
     return (
         <View style={AppStyles.container}>
-            <Text style={AppStyles.header}>July 8th, 2023</Text>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                <Text style={AppStyles.header}>July 8th, 2023</Text>
+                <Text style={AppStyles.header}>Hi, {username}</Text>
+            </View>
             <View style={AppStyles.reminderBoxesContainer}>
               <TouchableOpacity
                 style={AppStyles.reminderBox}
