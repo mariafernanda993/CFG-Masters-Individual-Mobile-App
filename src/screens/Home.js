@@ -10,8 +10,10 @@ export default function HomePage({ navigation }) {
 
   return (
     <View style={AppStyles.container}>
-      <Text style={AppStyles.header}>Welcome to the CFG Calendar App</Text>
-      <LogoutButton />
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between'}}>
+        <Text style={AppStyles.header}>CFG Calendar App</Text>
+        <Text style={AppStyles.header}>Hi, {username}</Text>
+      </View>
       <View style={AppStyles.buttonContainer}>
         <TouchableOpacity style={AppStyles.buttonStyle} onPress={() => navigation.navigate('Events')}>
           <Icon name="calendar" size={24} color="purple" />
@@ -29,7 +31,9 @@ export default function HomePage({ navigation }) {
         </TouchableOpacity>
       </View>
 
-      <Text style={AppStyles.usernameText}>Logged in as: {username}</Text>
+      <View style={AppStyles.logoutButton}>
+        <LogoutButton />
+      </View>
     </View>
   );
 }

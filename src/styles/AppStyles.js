@@ -88,6 +88,13 @@ const AppStyles = StyleSheet.create({
     fontSize: 14,
     color: 'white',
   },
+  logoutButton: {
+    position: 'absolute',
+    bottom: 10,
+    width: '100%',
+    padding: 10,
+    alignItems: 'center'
+  },
 });
 
 export default AppStyles;
