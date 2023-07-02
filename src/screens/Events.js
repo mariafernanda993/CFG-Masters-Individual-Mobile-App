@@ -1,8 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { useSelector } from 'react-redux';
 import AppStyles from '../styles/AppStyles';
 
 const EventsPage = () => {
+  const username = useSelector(state => state.username);
+
   const events = [
     { day: 'TUE', date: 11, eventName: 'Industry Event', time: '6.00 p.m.' },
     { day: 'SAT', date: 15, eventName: 'Brunch with Friends', time: '10.00 a.m.' },
@@ -12,7 +15,10 @@ const EventsPage = () => {
 
   return (
     <View style={AppStyles.container}>
-      <Text style={AppStyles.header}>July</Text>
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+        <Text style={AppStyles.header}>July</Text>
+        <Text style={AppStyles.header}>Hi, {username}</Text>
+      </View>
       {events.map((event, index) => (
         <View key={index} style={AppStyles.eventContainer}>
           <View style={AppStyles.dateContainer}>
