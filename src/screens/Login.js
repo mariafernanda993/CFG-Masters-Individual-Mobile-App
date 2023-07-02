@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TextInput, Button, Alert } from 'react-native';
+import { useDispatch } from 'react-redux';
 import styles from '../styles/AppStyles';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Login = ({ navigation }) => {
+  const dispatch = useDispatch();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -26,6 +28,8 @@ const Login = ({ navigation }) => {
           Alert.alert('Error', 'Invalid credentials');
         } else {
           Alert.alert('Success', 'Logged in successfully');
+          console.log('Dispatching username: ', username); // This will log the username being dispatched
+          dispatch({ type: 'LOGIN', payload: username }); 
           navigation.navigate('Home');
         }
       }

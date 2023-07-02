@@ -1,10 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { useSelector } from 'react-redux';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import AppStyles from '../styles/AppStyles';
 import LogoutButton from '../components/LogoutButton';
 
 export default function HomePage({ navigation }) {
+  const username = useSelector(state => state.username);
+
   return (
     <View style={AppStyles.container}>
       <Text style={AppStyles.header}>Welcome to the CFG Calendar App</Text>
@@ -25,6 +28,8 @@ export default function HomePage({ navigation }) {
           <Text style={AppStyles.textStyle}>Reminders</Text>
         </TouchableOpacity>
       </View>
+
+      <Text style={AppStyles.usernameText}>Logged in as: {username}</Text>
     </View>
   );
 }
