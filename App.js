@@ -1,4 +1,4 @@
-import { legacy_createStore as createStore } from 'redux';
+import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
